@@ -1,3 +1,5 @@
+const _Node = require('./node')
+
 class LinkedList {
   constructor() {
       this.head = null;
@@ -67,6 +69,10 @@ class LinkedList {
         console.log('Item not found');
         return;
     }
+    // take's previous node's next pointer
+    // and point to the node that is after current node
     previousNode.next = currNode.next;
   }
 }
+
+module.exports = LinkedList
