@@ -1,77 +1,64 @@
 const _Node = require('./node')
 
-class LinkedList {
+class LinkedList { 
   constructor() {
-      this.head = null;
+    this.head = null
   }
 
   insertFirst(item) {
-    this.head = new _Node(item, this.head);
+    this.head = new _Node(item, this.head)
   }
 
   insertLast(item) {
     if (this.head === null) {
-        this.insertFirst(item);
+      this.insertFirst(item)
     }
     else {
-        let tempNode = this.head;
-        while (tempNode.next !== null) {
-            tempNode = tempNode.next;
-        }
-        tempNode.next = new _Node(item, null);
+      let tempNode = this.head;
+      while (tempNode.next !== null) {
+        tempNode = tempNode.next
+      }
+      tempNode.next = new _Node(item, null)
     }
   }
 
-  find(item) { 
-    // Start at the head
-    let currNode = this.head;
-    // If the list is empty
+  find(item) {
+    let currNode = this.head
     if (!this.head) {
-        return null;
+      return null
     }
-    // Check for the item 
+
     while (currNode.value !== item) {
-        /* Return null if it's the end of the list 
-           and the item is not on the list */
-        if (currNode.next === null) {
-            return null;
-        }
-        else {
-            // Otherwise, keep looking 
-            currNode = currNode.next;
-        }
+      if (currNode.next === null) {
+        return null
+      }
+      else {
+        currNode = currNode.next
+      }
     }
-    // Found it
-    return currNode;
+    return currNode
   }
 
-  remove(item){ 
-    // If the list is empty
+  remote(item) {
     if (!this.head) {
-        return null;
+      return null
     }
-    // If the node to be removed is head, make the next node head
-    if (this.head.value === item) {
-        this.head = this.head.next;
-        return;
+    if(this.head.value === item) {
+      this.head = this.head.next
     }
-    // Start at the head
-    let currNode = this.head;
-    // Keep track of previous
-    let previousNode = this.head;
+    
+    let currNode = this.head
+    let previousNode = this.head
 
-    while ((currNode !== null) && (currNode.value !== item)) {
-        // Save the previous node 
-        previousNode = currNode;
-        currNode = currNode.next;
+    while((currNode !== null) && (currNode.value !== item)) {
+      previousNode = currNode
+      currNode = currNode.next
     }
     if (currNode === null) {
-        console.log('Item not found');
-        return;
+      console.timeLog('Item not found')
+      return
     }
-    // take's previous node's next pointer
-    // and point to the node that is after current node
-    previousNode.next = currNode.next;
+    previousNode.next = currNode.next
   }
 }
 
