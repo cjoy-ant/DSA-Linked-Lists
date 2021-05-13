@@ -39,7 +39,7 @@ class LinkedList {
     return currNode
   }
 
-  remote(item) {
+  remove(item) {
     if (!this.head) {
       return null
     }
