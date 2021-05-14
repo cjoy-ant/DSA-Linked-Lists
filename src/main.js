@@ -155,12 +155,22 @@ const main = () => {
   // }
 
   const middleOfList = (LL) => {
-    
+    let end = LL.head
+    let middle = LL.head
+    // two cases cover even and odd length
+    while (end !== null && end.next !== null) {
+      // advance one pointer 2 times faster than the other
+      end = end.next.next
+      middle = middle.next
+    }
+    // return the value of the node which was advanced at regular speed
+    console.log('middle of the list: ' + middle.value)
+    return middle.value
   }
 
   middleOfList(SLL)
 
-  // CYCLCE IN A LIST
+  // CYCLE IN A LIST
 
   // SORTING A LIST
 };
