@@ -171,7 +171,44 @@ const main = () => {
   middleOfList(SLL)
 
   // CYCLE IN A LIST
+  const cycleList = (LL) => {
+    let currNode = LL.head;
+    let values = [];
+    let isCycle = false;
 
+    while (currNode !== null) {
+      if (values.includes(currNode.value)) {
+        isCycle = true;
+        return isCycle
+      }
+      values.push(currNode.value);
+      currNode = currNode.next;
+    }
+    console.log("cycle: " + isCycle);
+    isCycle = false
+    return isCycle;
+  };
+
+  cycleList(SLL);
+
+  // OTHER SOLUTION
+  // const hasCycle = (LL) => {
+  //   // has a high probability of preventing false positives
+  //   let flag = Math.random()
+  //   let current = LL.head // 1 2 3 4
+
+  //   while (current !== null) {
+  //     if (current.value === flag) {
+  //       return true
+  //     }
+  //     current.value = flag
+  //     current = current.next
+  //   }
+  //   return false
+  // }
+
+  // hasCycle(SLL)
+  
   // SORTING A LIST
 };
 
